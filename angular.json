@@ -99,6 +99,42 @@
           }
         }
       }
+    },
+    "my-ownLib-dev": {
+      "projectType": "library",
+      "root": "projects/my-own-lib-dev",
+      "sourceRoot": "projects/my-own-lib-dev/src",
+      "prefix": "nx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/my-own-lib-dev/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/my-own-lib-dev/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/my-own-lib-dev/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/my-own-lib-dev/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
+  },
+  "cli": {
+    "analytics": "d1b7defe-44a8-4613-9843-ac4549c5e123"
   }
 }
